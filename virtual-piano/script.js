@@ -1,12 +1,11 @@
 const piano = document.querySelector('.piano'),
       pianoKeys = document.querySelectorAll('.piano-key'),
       notesBtn = document.querySelector('.btn-notes'),
-      lettersBtn = document.querySelector('.btn-letters');
-
-const fullscreenEnabled = 
-      document.fullscreenEnabled || 
+      lettersBtn = document.querySelector('.btn-letters'),
+      fullscreenEnabled = document.fullscreenEnabled || 
       document.mozFullscreenEnabled || 
       document.webkitFullscreenEnabled;
+
 
 function addActive(e) {
     const target = e.target;
@@ -86,7 +85,10 @@ document.addEventListener('mouseout', (e)=>{
 
 // keyboard events 
 document.addEventListener('keydown',(e)=>{
-    let keyPressed = document.querySelector(`[data-letter='${e.key.toUpperCase()}']`);
+    let keyPressed = '';
+    if (e.code.substring(0,3) == 'Key') {
+    keyPressed = document.querySelector(`[data-letter='${e.code[3]}']`);
+    }
     if (keyPressed && !e.repeat) {
         playAudio(`assets/audio/${keyPressed.dataset.note}.mp3`);
         keyPressed.classList.add('piano-key-active','piano-key-active-pseudo');
@@ -94,7 +96,10 @@ document.addEventListener('keydown',(e)=>{
 })
 
 document.addEventListener('keyup',(e)=>{
-    let keyPressed = document.querySelector(`[data-letter='${e.key.toUpperCase()}']`);
+    let keyPressed = '';
+    if (e.code.substring(0,3) == 'Key') {
+        keyPressed = document.querySelector(`[data-letter='${e.code[3]}']`);
+        }
     if (keyPressed) {
         keyPressed.classList.remove('piano-key-active','piano-key-active-pseudo');
     }
