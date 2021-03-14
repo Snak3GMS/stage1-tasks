@@ -17,7 +17,7 @@ function addActive(e) {
     }
 }
 
-// letters or Notes
+// letters or Notes and fullscreen
 
 document.addEventListener('click', (e)=>{
     const target = e.target;
@@ -35,6 +35,7 @@ document.addEventListener('click', (e)=>{
             element.classList.remove('piano-key-letter');
         });
     }
+    // fullscreen
     if (target.classList.contains('fullscreen')) {
         if(document.body.requestFullScreen) {
             document.body.requestFullScreen();
@@ -57,7 +58,7 @@ document.addEventListener('click', (e)=>{
 })
 
 // mouse Events
-document.addEventListener('mousedown', (e)=>{
+piano.addEventListener('mousedown', (e)=>{
     const target = e.target;
     if(target.dataset.note !== undefined) {
         playAudio(`assets/audio/${target.dataset.note}.mp3`);
@@ -66,11 +67,11 @@ document.addEventListener('mousedown', (e)=>{
         target.classList.add('piano-key-active','piano-key-active-pseudo');
         
     }
-    document.addEventListener('mouseover', addActive);
+    piano.addEventListener('mouseover', addActive); 
 });
 
-document.addEventListener('mouseup', (e)=>{
-    document.removeEventListener('mouseover', addActive)
+piano.addEventListener('mouseup', (e)=>{
+    piano.removeEventListener('mouseover', addActive)
     const target = e.target;
     if (target.classList.contains('piano-key')) {
         target.classList.remove('piano-key-active','piano-key-active-pseudo');
@@ -105,6 +106,7 @@ document.addEventListener('keyup',(e)=>{
     }
 })
 
+// Audio func
 function playAudio(src) {
     const audio = new Audio();
     audio.src = src;
