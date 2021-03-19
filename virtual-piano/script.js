@@ -70,7 +70,7 @@ piano.addEventListener('mousedown', (e)=>{
     piano.addEventListener('mouseover', addActive); 
 });
 
-body.addEventListener('mouseup', (e)=>{
+document.addEventListener('mouseup', (e)=>{
     piano.removeEventListener('mouseover', addActive)
     const target = e.target;
     if (target.classList.contains('piano-key')) {
