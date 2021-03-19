@@ -10,7 +10,7 @@ const piano = document.querySelector('.piano'),
 function addActive(e) {
     const target = e.target;
     if (target.classList.contains('piano-key')) {
-        target.classList.add('piano-key-active','piano-key-active-pseudo');
+        target.classList.add('piano-key-active','piano-key-active-pseudo','vova');
         if(target.dataset.note !== undefined) {
             playAudio(`assets/audio/${target.dataset.note}.mp3`);
         }
@@ -64,7 +64,7 @@ piano.addEventListener('mousedown', (e)=>{
         playAudio(`assets/audio/${target.dataset.note}.mp3`);
     }
     if (target.classList.contains('piano-key')) {
-        target.classList.add('piano-key-active','piano-key-active-pseudo');
+        target.classList.add('piano-key-active','piano-key-active-pseudo','vova');
         
     }
     piano.addEventListener('mouseover', addActive); 
@@ -74,13 +74,13 @@ document.addEventListener('mouseup', (e)=>{
     piano.removeEventListener('mouseover', addActive)
     const target = e.target;
     if (target.classList.contains('piano-key')) {
-        target.classList.remove('piano-key-active','piano-key-active-pseudo');
+        target.classList.remove('piano-key-active','piano-key-active-pseudo','vova');
     }
 });
 document.addEventListener('mouseout', (e)=>{
     const target = e.target;
     if (target.classList.contains('piano-key')) {
-        target.classList.remove('piano-key-active','piano-key-active-pseudo');
+        target.classList.remove('piano-key-active','piano-key-active-pseudo','vova');
     }
 });
 
