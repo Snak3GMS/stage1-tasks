@@ -180,6 +180,15 @@ body {
 .piano-key-active::before {
 	color: #00b4a4;
 }
+.piano-key.sharp.vova::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 54px;
+    height: 15px;
+    transform: translate(-6px, 190px);
+    pointer-events: all;
 
 .fullscreen {
 	position: fixed;
