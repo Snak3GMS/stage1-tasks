@@ -187,8 +187,8 @@ body {
     display: block;
     position: absolute;
     width: 54px;
-    height: 10px;
-    transform: translate(-6px, 184px);
+    height: 7px;
+    transform: translate(-6px, 182px);
     pointer-events: all;
 }
 
